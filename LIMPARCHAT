@@ -1,0 +1,27 @@
+package me.rafael2425.smallapi;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+public class Limparchat implements CommandExecutor{
+	
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (command.getName().equalsIgnoreCase("limparchat")){
+			if (!sender.hasPermission("smalllimparchat.usar")){
+				sender.sendMessage("§cVocê não tem permissão para isso.");	
+			}else{
+				for (int i = 0; i < 300; i++){
+					Bukkit.broadcastMessage("");
+				}
+				Bukkit.broadcastMessage("§aO chat foi limpo por §f"+sender.getName());
+				
+			}
+		}
+		return false;
+
+	}
+
+}
